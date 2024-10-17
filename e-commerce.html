@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HB Footwear</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #ffffff;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease-in-out;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: #222;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            font-size: 18px;
+        }
+
+        nav ul li a:hover {
+            color: #ff4757;
+        }
+
+        .logo {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        /* Hero Section */
+        #home {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        #home video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        #home h1 {
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            animation: fadeInDown 1.5s ease-out;
+        }
+
+        #home p {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            animation: fadeInUp 1.5s ease-out;
+        }
+
+        #home a {
+            background-color: #ff4757;
+            padding: 12px 30px;
+            font-size: 18px;
+            color: white;
+            border-radius: 50px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        #home a:hover {
+            transform: scale(1.1);
+        }
+
+        /* Keyframe Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Products Section */
+        #products {
+            padding: 100px 20px;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        #products h2 {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+        }
+
+        .products-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .product-card, .review-card {
+            background-color: rgb(255, 255, 255);
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            width: 250px;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+        }
+
+        .product-card img, .review-card img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+
+        .product-card h3, .review-card h3 {
+            font-size: 1.5rem;
+            margin: 20px 0 10px 0;
+        }
+
+        .product-card p, .review-card p {
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+
+        .product-card button {
+            background-color: #ff4757;
+            color: rgb(255, 255, 255);
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .product-card button:hover {
+            background-color: #ff6b81;
+        }
+
+        .product-card:hover, .review-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Reviews Section */
+        #reviews {
+            padding: 100px 20px;
+            background-color: #ffffff;
+            
+            text-align: center;
+        }
+
+        #reviews h2 {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+        }
+
+        .reviews-grid {
+            
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .stars {
+            color: #ff4757;
+            font-size: 1.2rem;
+        }
+
+        /* About Section */
+        #about {
+            padding: 100px 20px;
+            background-color: #ffffff;
+            text-align: center;
+        }
+
+        #about h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+
+        #about p {
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+
+
+
+        
+        /* Contact Section */
+        #contact {
+            padding: 100px 20px;
+            background-color: #000000;
+            color: white;
+            text-align: center;
+        }
+
+        #contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+        }
+
+        #contact p {
+            font-size: 1.2rem;
+        }
+
+        #contact a {
+            color: #ff4757;
+            font-size: 1.5rem;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #000000;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        footer p {
+            margin-bottom: 5px;
+        }
+        .social-icons {
+            margin: 10px 0;
+        }
+
+        .social-icons a {
+            color: white;
+            margin: 0 10px;
+            font-size: 24px;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #ff4757;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            #home h1 {
+                font-size: 2.5rem;
+            }
+
+            #home p {
+                font-size: 1.2rem;
+            }
+
+            nav ul {
+                gap: 10px;
+            }
+
+            .product-card, .review-card {
+                width: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="logo">HB Footwear</div>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#products">Products</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home">
+        <video autoplay muted loop>
+            <source src="https://videos.pexels.com/video-files/8059611/8059611-uhd_2560_1440_25fps.mp4" type="video/mp4"> <!-- Replace with shoe advertisement video -->
+            Your browser does not support HTML5 video.
+        </video>
+        <div>
+            <h1>Welcome to HB Footwear</h1>
+            <p>Your destination for stylish and affordable shoes</p>
+            <a href="#products">Explore Now</a>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products">
+      
+        <h2>Featured Shoes</h2>
+        <div class="products-grid">
+            <div class="product-card">
+                <img src="https://images.pexels.com/photos/1464624/pexels-photo-1464624.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load" alt="Sporty Sneakers">
+                <h3>Sporty Sneakers</h3>
+                <p>Comfortable and durable. Perfect for everyday wear.</p>
+                <p>$49.99</p>
+                <button>Buy Now</button>
+            </div>
+            <div class="product-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSF4z8LBBUyCNRrLPdysn4OiBgp6iIDc5ANa5FKgXosfL8lFJwLiTpI-H7StDg-CwvRL_4&usqp=CAU" alt="Classic Loafers">
+                <h3>Classic Loafers</h3>
+                <p>Elegant and timeless design. Ideal for formal occasions.</p>
+                <p>$79.99</p>
+                <button>Buy Now</button>
+            </div>
+            <div class="product-card">
+                <img src="https://images.pexels.com/photos/11324547/pexels-photo-11324547.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load" alt="Running Shoes">
+                <h3>Running Shoes</h3>
+                <p>Lightweight and comfortable. Perfect for running and fitness.</p>
+                <p>$59.99</p>
+                <button>Buy Now</button>
+            </div>
+        </div>
+        <video autoplay muted loop>
+            <source src="https://videos.pexels.com/video-files/19329015/19329015-hd_1920_1080_60fps.mp4" type="video/mp4"> <!-- Replace with shoe advertisement video -->
+            Your browser does not support HTML5 video.
+        </video>
+    </section>
+
+    <!-- Reviews Section -->
+    <section id="reviews">
+        <h2>Customer Reviews</h2>
+        <div class="reviews-grid">
+            <div class="review-card">
+                <h3>Jane Doe</h3>
+                <p class="stars">★★★★★</p>
+                <p>“Amazing quality shoes! Very comfortable and stylish.”</p>
+            </div>
+            <div class="review-card">
+                <h3>John Smith</h3>
+                <p class="stars">★★★★★</p>
+                <p>“Great customer service and fast shipping!”</p>
+            </div>
+            <div class="review-card">
+                <h3>Emily Johnson</h3>
+                <p class="stars">★★★★★</p>
+                <p>“I love my new sneakers! Perfect fit and very stylish.”</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2>About Us</h2>
+        <p><b>At HB Footwear, we are dedicated to providing you with the best footwear options for every occasion. Our shoes combine style, comfort, and affordability. Shop with us today and find your perfect pair!</b></p>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>If you have any questions, feel free to reach out!</p>
+        <a href="mailto:info@hbfootwear.com">info@hbshoestore.com</a>
+    </section>
+<hr>
+   <!-- Footer -->
+   <footer>
+    <p>&copy; HB Footwear | All Right Reserved, Terms of Use - Privacy Policy</p>
+    <div class="social-icons">
+        <a href="http://127.0.0.1:5500/main.html#home" target="_blank">Facebook</a>
+        <a href="http://127.0.0.1:5500/main.html#home" target="_blank">Instagram</a>
+    </div>
+</footer>
+</body>
+</html>
